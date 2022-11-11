@@ -24,8 +24,8 @@
 
 ### Synchronize project environment
 
-Before starting development, please ensure that your project environment is synchronized with the `renv.lock` file.
-You can restor the package environment for your project via `make install`from the command line.
+- Before starting development, please ensure that your project environment is synchronized with the `renv.lock` file.
+- You can restor the package environment for your project via `make install`from the command line.
 ------------------------------------------------------------------------
 # Introduction about this project
 
