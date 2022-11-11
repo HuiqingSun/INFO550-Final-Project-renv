@@ -1,0 +1,97 @@
+---
+output: html_document
+---
+
+```{r, here-i-am}
+here::i_am(
+  "report.Rmd"
+)
+```
+
+# Data Intro
+
+The data set I chose is from [Kaggle web, Breast Cancer Data Folder](https://www.kaggle.com/datasets/reihanenamdari/breast-cancer), which provides information on population-based cancer statistics.
+
+This data set involves female breast cancer patients diagnosed with invasive ductal and lobular carcinoma from 2006-2010. 4024 patients were finally included, excluding patients with unknown tumor size, examined regional lymph nodes, positive regional lymphatic vessels, and survival months less than 1 month.
+
+I want to create a R Markdown report mainly about exploring 
+* which variables are related to breast cancer
+* how exactly they are related to 
+
+Some useful description about the variables: 
+
+Grade: A low grade number (grade 1) usually means the cancer is slower-growing and less likely to spread, while a higher grade number means a faster-growing cancer that's more likely to spread. 
+
+Estrogen and Progesterone Status: If breast cancer cells have estrogen receptors, the cancer is called ER-positive breast cancer. If breast cancer cells have progesterone receptors, the cancer is called PR-positive breast cancer. If the cells do not have either of these 2 receptors, the cancer is called ER/PR-negative.
+
+```{r}
+data <- readRDS(
+  file=here::here("data/data_clean.rds")
+)
+head(data)
+```
+
+
+The table blow shows alive status in terms of Grade, Race, Marital Status and Estrogen Status.
+Statistics include overall number, percentage as well as p values.
+
+```{r, table1}
+readRDS(
+  file = here::here("output/table_one.rds")
+)
+```
+
+## Graphical analysis
+
+Figure1,2 3 and 4 are histograms about patients' status among 4 interested variables: age, race, marital status and estrogen status (will explore more variables later). And we can see, the alive rate is high among White compared with other races, is high among married women as well as estrogen positive women.
+
+For Figure5, It turns out that women ages between 45 to 65 are most suffer from Brest Cancer.
+
+For Figure6, It shows that patients in Grade 4 stage of breast cancer has bigger sized tumour compair to Grade 1,2 and 3.
+```{r, f1}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fig1.png")
+)
+```
+
+```{r, f2}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fig2.png")
+)
+```
+
+```{r, f3}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fig3.png")
+)
+```
+
+```{r, f4}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fig4.png")
+)
+```
+
+```{r, f5}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fig5.png")
+)
+```
+
+```{r, f6}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fig6.png")
+)
+```
