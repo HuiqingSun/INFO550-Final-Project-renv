@@ -3,7 +3,33 @@
 >Steps about my analysis
 
 ------------------------------------------------------------------------
+## Docker image
+You should now fork and clone this repository on GitHub.
 
+After having this repository folder on your local computer, build the image .
+
+1. In a terminal, `cd` to the directory that contains the fork repository
+- `docker build -t <your_image_name>` 
+- Replace <your_image_name> with whatever you would like your image to be called.
+- Note: this build could take several minutes
+
+2. Check that the image was built by running `docker image ls`
+
+3. Run an interactive container based on your built image
+- `docker run -it <your_image_name> bash`
+- Replace <your_image_name> with whatever you named your image above.
+
+4. 
+- If you are using `r-ubuntu`:
+
+- `docker run -it -v "$(pwd)"/code:/project/code -v "$(pwd)"/output:/project/output <your_image_name> bash`
+
+- If you are using `r-studio`:
+
+- `docker run -e PASSWORD=<your_password> -p 8787:8787 -v "$(pwd)"/code:/project/code -v "$(pwd)"/output:/project/output <your_image_name>`
+
+5. Recall that if you are using git bash on Windows, you will need an extra `/`, i.e., `"/$(pwd)"`
+------------------------------------------------------------------------
 ## Describe the contents of my repository
 
 `data`
