@@ -3,25 +3,15 @@
 >Steps about my analysis
 
 ------------------------------------------------------------------------
-## Docker Build
+## Docker 
 
 - My Docker image is in `https://hub.docker.com/repository/docker/hqsun/hdp`
-
-The process I built that is 
-1. Create correct Dockerfile and makefile.
-2. Run `docker build -t project_image .` to build a image called project_image.
-3. Run `docker run -it project_image bash` to run that image interactivelly and use `make` to test if I can generate the right report.
-4. Create a mounting directory called `final_report` and run `docker run -v "$(pwd)"/final_report:/project/final_report project_image` to synchronize docker container and local computer.
-5. Run `docker tag 32813fc354ff hqsun/hdp` to tag this image.
-6. Run `docker push hqsun/hdp` to push this image to Dockerhub.
-
-## Docker Run
-To test my project succeesfully:
-
-- Use `docker pull hqsun/hdp:latest` 
-- Run `docker run -it hqsun/hdp bash`
-- Run `make report.html`
-
+To build the container, 
+- use `docker build -t hdp`
+To run the container, 
+- use `docker run -it hdp bash`
+In the container image, to build the compiled final report and this will be saved within the project folder.
+- run `make final_report/report.html` 
 ------------------------------------------------------------------------
 ## Describe the contents of my repository
 

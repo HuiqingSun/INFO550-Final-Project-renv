@@ -42,7 +42,7 @@ pull:
 
 # rule to run the container
 final_report/report.html:
-	docker run -v "$$(pwd)/final_report": /project/final_report hqsun/hdp
+	docker run -v "/$$(pwd)/final_report":/project/final_report hqsun/hdp
 
 
 	
