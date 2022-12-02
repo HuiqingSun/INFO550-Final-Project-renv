@@ -3,32 +3,23 @@
 >Steps about my analysis
 
 ------------------------------------------------------------------------
-## Docker image
-You should now fork and clone this repository on GitHub.
+## Docker Build
 
-After having this repository folder on your local computer, build the image .
+- My Docker image is in `https://hub.docker.com/repository/docker/hqsun/hdp`
 
-1. In a terminal, `cd` to the directory that contains the fork repository
-- `docker build -t <your_image_name>` 
-- Replace <your_image_name> with whatever you would like your image to be called.
-- Note: this build could take several minutes
+The process I built that is 
+1. Create correct Dockerfile and makefile.
+2. Run `docker build -t project_image .` to build a image called project_image.
+3. Run `docker run -it project_image bash` to run that image interactivelly and use `make` to test if I can generate the right report.
+4. Create a mounting directory called `final_report` and run `docker run -v "$(pwd)"/final_report:/project/final_report project_image` to synchronize docker container and local computer.
+5. Run `docker tag 32813fc354ff hqsun/hdp` to tag this image.
+6. Run `docker push hqsun/hdp` to push this image to Dockerhub.
 
-2. Check that the image was built by running `docker image ls`
+## Docker Run
+- To test my project succeesfully, it would be helpful if you use `git clone https://github.com/HuiqingSun/INFO550-Final-Project-renv` to clone my github
 
-3. Run an interactive container based on your built image
-- `docker run -it <your_image_name> bash`
-- Replace <your_image_name> with whatever you named your image above.
+- Use `docker pull hqsun/hdp:latest` and then run `make final_report/report.html`
 
-4. 
-- If you are using `r-ubuntu`:
-
-- `docker run -it -v "$(pwd)"/code:/project/code -v "$(pwd)"/output:/project/output <your_image_name> bash`
-
-- If you are using `r-studio`:
-
-- `docker run -e PASSWORD=<your_password> -p 8787:8787 -v "$(pwd)"/code:/project/code -v "$(pwd)"/output:/project/output <your_image_name>`
-
-5. Recall that if you are using git bash on Windows, you will need an extra `/`, i.e., `"/$(pwd)"`
 ------------------------------------------------------------------------
 ## Describe the contents of my repository
 

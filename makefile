@@ -1,6 +1,6 @@
-report.html: report.Rmd render_report.R data/data_clean.rds output/table_one.rds \
+report.html: report.Rmd code/render_report.R data/data_clean.rds output/table_one.rds \
   output/fig1.png output/fig2.png output/fig3.png output/fig4.png output/fig5.png output/fig6.png
-	Rscript render_report.R
+	Rscript code/render_report.R
 	
 data/data_clean.rds: code/data.R data/Breast_Cancer.csv
 	Rscript code/data.R
@@ -32,9 +32,17 @@ output/fig6.png: code/07_make_figure6.R data/data_clean.rds
 
 .PHONY: clean
 clean:
-	rm -f output/*.rds && rm -f Info550-Project-.html
+	rm -f output/*.rds && rm -f report.html
 	
-.PHONY: install
-install:
-	Rscript -e "renv::restore(prompt=FALSE)"
+build:
+	docker build -t hqsun/hdp
+	
+pull:
+	docker pull hqsun/hdp
+
+# rule to run the container
+final_report/report.html:
+	docker run -v "$$(pwd)/final_report": /project/final_report hqsun/hdp
+
+
 	
