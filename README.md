@@ -16,9 +16,11 @@ The process I built that is
 6. Run `docker push hqsun/hdp` to push this image to Dockerhub.
 
 ## Docker Run
-- To test my project succeesfully, it would be helpful if you use `git clone https://github.com/HuiqingSun/INFO550-Final-Project-renv` to clone my github
+To test my project succeesfully:
 
-- Use `docker pull hqsun/hdp:latest` and then run `make final_report/report.html`
+- Use `docker pull hqsun/hdp:latest` 
+- Run `docker run -it hqsun/hdp bash`
+- Run `make report.html`
 
 ------------------------------------------------------------------------
 ## Describe the contents of my repository
