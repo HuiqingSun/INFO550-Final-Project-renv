@@ -5,11 +5,11 @@
 ------------------------------------------------------------------------
 ## Docker 
 
-- My Docker image is in `https://hub.docker.com/repository/docker/hqsun/hdp`
-To build the container, 
-- use `docker build -t hdp`
+- My Docker image is in `https://hub.docker.com/repository/docker/hqsun/hdp` \
+To build the container,  
+- use `docker build -t hdp` \
 To run the container, 
-- use `docker run -it hdp bash`
+- use `docker run -it hdp bash` \
 In the container image, to build the compiled final report and this will be saved within the project folder.
 - run `make final_report/report.html` 
 ------------------------------------------------------------------------
