@@ -35,7 +35,7 @@ clean:
 	rm -f output/*.rds && rm -f report.html
 	
 build:
-	docker build -t hqsun/hdp
+	docker build -t hqsun/hdp .
 	
 pull:
 	docker pull hqsun/hdp

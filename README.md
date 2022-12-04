@@ -7,9 +7,9 @@
 
 My Docker image is in `https://hub.docker.com/repository/docker/hqsun/hdp` 
 - To build the container,  
-use `docker build -t hdp .` 
+use `make pull` 
 - To run the container, 
-use `docker run -it hdp bash` 
+use `make build` 
 - In the container image, to build the compiled final report and this will be saved within the project folder.
 run `make final_report/report.html` 
 ------------------------------------------------------------------------
